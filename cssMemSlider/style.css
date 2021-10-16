@@ -11,10 +11,9 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
   column-gap: 50px;
   width: 100%;
-  height: 95vh;
+  height: 100vh;
   margin: 0 auto;
   background-color: rgb(235, 235, 235);
 }
@@ -25,24 +24,7 @@
   width: 95%;
   height: 100%;
   margin: 20px auto;
-  background: var(--dark);
-  border-radius: 10px;
 }
-
-/* .content-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 95%;
-  height: 15%;
-  margin: 20px auto;
-  background: var(--dark);
-  color: #fff;
-} */
-
-/* .text {
-  font-size: 1.5rem;
-} */
 
 input[type='radio'] {
   -webkit-appearance: none;
@@ -50,18 +32,15 @@ input[type='radio'] {
   appearance: none;
   width: 100%;
   height: 0%;
-  float: inline-start;
-  margin-top: 10px;
-
+  background-color: var(--dark);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
-  transition: width 0.5s linear;
+  transition: height 0.5s linear;
 }
 
 input[type='radio']:checked {
   height: 100%;
-  float: inline-end;
 }
 
 .cat1 {
@@ -84,31 +63,42 @@ input[type='radio']:checked {
   background-image: url(./img/cat5.jpg);
 }
 
-.cat1:checked ~ .controls > .label1 .label-inner {
+.cat1:checked ~ .controls-container > .controls > .label1 .label-inner,
+.cat2:checked ~ .controls-container > .controls > .label2 .label-inner,
+.cat3:checked ~ .controls-container > .controls > .label3 .label-inner,
+.cat4:checked ~ .controls-container > .controls > .label4 .label-inner,
+.cat5:checked ~ .controls-container > .controls > .label5 .label-inner {
   background-color: var(--dark);
 }
 
-.cat2:checked ~ .controls > .label2 .label-inner {
-  background-color: var(--dark);
+.cat1:checked ~ .controls-container > .text-container > .text1,
+.cat2:checked ~ .controls-container > .text-container > .text2,
+.cat3:checked ~ .controls-container > .text-container > .text3,
+.cat4:checked ~ .controls-container > .text-container > .text4,
+.cat5:checked ~ .controls-container > .text-container > .text5 {
+  font-size: 1.5rem;
+  opacity: 1;
 }
 
-.cat3:checked ~ .controls > .label3 .label-inner {
-  background-color: var(--dark);
+.center {
+  width: 100%;
+  height: 4%;
+  margin: -1px 0;
+  background: var(--dark);
 }
 
-.cat4:checked ~ .controls > .label4 .label-inner {
-  background-color: var(--dark);
-}
-
-.cat5:checked ~ .controls > .label5 .label-inner {
-  background-color: var(--dark);
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  padding: 30px 10px;
+  background: var(--dark);
 }
 
 .controls {
   display: flex;
   justify-content: flex-end;
-  margin-top: 80px;
-  margin-bottom: 30px;
 }
 
 .controls > label {
@@ -137,14 +127,23 @@ input[type='radio']:checked {
   background-color: rgb(134, 134, 134);
 }
 
-/* .label1:before {
-  content: 'Cat 1';
-  display: block;
-  color: #fff;
-  float: left;
-} */
-
 .text-container {
   display: flex;
   color: #fff;
+  font-size: 0rem;
+}
+.text-container > div {
+  transition: all 0.2s linear;
+}
+
+@media (max-width: 768px) {
+  .controls-container {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    padding: 30px 10px;
+    background: var(--dark);
+  }
 }
