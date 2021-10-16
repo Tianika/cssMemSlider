@@ -20,6 +20,7 @@
 }
 
 .image-container {
+  display: flex;
   width: 95%;
   height: 80%;
   margin: 20px auto;
@@ -46,28 +47,69 @@ input[type='radio'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  cursor: pointer;
-  margin: 3px;
-  width: 27px;
-  height: 27px;
-  background-color: #fff;
-  border-radius: 50%;
-  border: 5px solid var(--dark);
-  transition: background-color 0.5s linear;
-}
+  width: 0%;
 
-input[type='radio']:hover {
-  background-color: rgb(168, 243, 118);
-}
-
-input[type='radio']:active {
-  background-color: rgb(250, 226, 118);
-  border: 5px solid rgb(250, 226, 118);
+  margin: 10px auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  transition: width 0.5s linear;
 }
 
 input[type='radio']:checked {
+  width: 100%;
+}
+
+.cat1 {
+  background-image: url(./img/cat1.jpg);
+}
+
+.cat2 {
+  background-image: url(./img/cat2.jpg);
+}
+
+.cat3 {
+  background-image: url(./img/cat3.jpg);
+}
+
+.cat4 {
+  background-image: url(./img/cat4.jpg);
+}
+
+.cat5 {
+  background-image: url(./img/cat5.jpg);
+}
+
+.controls {
+  display: flex;
+}
+
+.controls > label {
+  display: block;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  border-radius: 50%;
+  transition: all 0.5s linear;
+}
+
+.label-inner {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 3px solid #fff;
   background-color: #fff;
-  background-image: url(./svg/circle.svg);
-  background-repeat: no-repeat;
-  background-position: center center;
+  transition: all 0.2s linear;
+}
+
+.label > .label-inner:hover {
+  background-color: rgb(134, 134, 134);
+}
+
+.label > .label-inner:active {
+  width: 27px;
+  height: 27px;
+  border: 7px solid #fff;
+  background-color: rgb(134, 134, 134);
 }
