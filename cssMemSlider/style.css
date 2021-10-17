@@ -2,66 +2,71 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
 :root {
   --dark: rgb(34, 34, 34);
-  --light-grey: rgb(235, 235, 235);
+  --light-grey: rgb(134, 134, 134);
   --white: rgb(255, 255, 255);
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  background-color: var(--light-grey);
+  justify-content: center;
+  margin: 1vh auto;
+  width: 95vw;
+  height: 98vh;
+  border-radius: 5px;
+  background-color: var(--dark);
+  overflow: hidden;
 }
 
 .slider-container {
   display: flex;
   flex-direction: column;
-  width: 95%;
-  height: 100%;
-  margin: 20px auto;
+  align-self: center;
+  width: 50%;
+  padding: 30px 10px 20px;
+  max-height: 100vmin;
+}
+
+.images {
+  display: flex;
+  max-width: 100%;
+  height: 88vmin;
+  overflow: hidden;
+}
+
+.images img {
+  display: block;
+  object-fit: fill;
+  width: 1px;
+  opacity: 0;
+  border: 0px solid var(--white);
+  border-radius: 5px;
+  height: auto;
+  transition: all 0.7s ease-in-out;
 }
 
 input[type='radio'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 100%;
   height: 0%;
-  background-color: var(--dark);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  transition: height 0.5s linear;
+  width: 0;
 }
 
-input[type='radio']:checked {
-  height: 100%;
-}
-
-.cat1 {
-  background-image: url(./img/cat1.webp);
-}
-
-.cat2 {
-  background-image: url(./img/cat2.png);
-}
-
-.cat3 {
-  background-image: url(./img/cat3.jpg);
-}
-
-.cat4 {
-  background-image: url(./img/cat4.jpg);
-}
-
-.cat5 {
-  background-image: url(./img/cat5.jpg);
+.cat1:checked ~ .images > .image-cat1,
+.cat2:checked ~ .images > .image-cat2,
+.cat3:checked ~ .images > .image-cat3,
+.cat4:checked ~ .images > .image-cat4,
+.cat5:checked ~ .images > .image-cat5 {
+  opacity: 1;
+  width: 100%;
+  border: 10px solid var(--white);
 }
 
 .cat1:checked ~ .controls-container > .controls > .label1 .label-inner,
@@ -77,37 +82,35 @@ input[type='radio']:checked {
 .cat3:checked ~ .controls-container > .text-container > .text3,
 .cat4:checked ~ .controls-container > .text-container > .text4,
 .cat5:checked ~ .controls-container > .text-container > .text5 {
-  font-size: 1.5rem;
-  opacity: 1;
-}
-
-.center {
+  font-size: 30px;
   width: 100%;
-  height: 4%;
-  margin: -1px 0;
-  background: var(--dark);
+  opacity: 1;
 }
 
 .controls-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 30px;
-  padding: 30px 10px;
-  background: var(--dark);
+  padding: 20px 0 10px;
 }
 
 .controls {
   display: flex;
   justify-content: flex-end;
+  align-self: center;
 }
 
 .controls > label {
+  display: block;
   cursor: pointer;
   height: 30px;
+  width: 30px;
   margin: 8px;
   border-radius: 50%;
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
+}
+
+.controls > label:last-child {
+  margin-right: 0;
 }
 
 .label-inner {
@@ -116,42 +119,51 @@ input[type='radio']:checked {
   border-radius: 50%;
   border: 3px solid var(--white);
   background-color: var(--white);
-  transition: all 0.2s linear;
+  transition: all 0.3s linear;
 }
 
 .label > .label-inner:hover {
-  background-color: rgb(134, 134, 134);
+  background-color: var(--light-grey);
 }
 
 .label > .label-inner:active {
   box-shadow: 0px 0px 3px 4px rgba(255, 255, 255, 0.6);
-  background-color: rgb(134, 134, 134);
+  background-color: var(--light-grey);
 }
 
 .text-container {
   display: flex;
-  flex-direction: column;
   color: var(--white);
-  font-size: 0rem;
+  font-size: 30px;
+  height: 50px;
 }
+
 .text-container > div {
-  transition: all 0.2s linear;
+  font-size: 0;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+  }
+
   .slider-container {
-    padding: 20px;
+    width: 100%;
+    max-height: 150vmin;
+    padding: 10px 0;
     background-color: var(--dark);
+  }
+
+  .images {
+    margin-bottom: 30px;
   }
 
   .controls-container {
     display: flex;
     flex-direction: column-reverse;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0;
-    padding: 30px 10px;
-    background: var(--dark);
+    padding: 0;
   }
 
   .text-container {
