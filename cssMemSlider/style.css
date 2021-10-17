@@ -83,6 +83,7 @@ input[type='radio'] {
 .cat4:checked ~ .controls-container > .text-container > .text4,
 .cat5:checked ~ .controls-container > .text-container > .text5 {
   font-size: 30px;
+  letter-spacing: 2px;
   width: 100%;
   opacity: 1;
 }
@@ -139,6 +140,8 @@ input[type='radio'] {
 }
 
 .text-container > div {
+  font-family: Lobster;
+  letter-spacing: 0px;
   font-size: 0;
   opacity: 0;
   transition: all 0.3s ease-in-out;
