@@ -4,6 +4,7 @@
   padding: 0;
   -moz-user-select: none;
   -webkit-user-select: none;
+  font-size: 10px;
 }
 
 :root {
@@ -19,7 +20,7 @@
   margin: 1vh auto;
   width: 95vw;
   height: 98vh;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   background-color: var(--dark);
   overflow: hidden;
 }
@@ -29,7 +30,7 @@
   flex-direction: column;
   align-self: center;
   width: 50%;
-  padding: 30px 10px 20px;
+  padding: 3rem 1rem 2rem;
   max-height: 100vmin;
 }
 
@@ -43,10 +44,10 @@
 .images img {
   display: block;
   object-fit: fill;
-  width: 1px;
+  width: 0;
   opacity: 0;
   border: 0px solid var(--white);
-  border-radius: 5px;
+  border-radius: 0.5rem;
   height: auto;
   transition: all 0.7s ease-in-out;
 }
@@ -66,7 +67,7 @@ input[type='radio'] {
 .cat5:checked ~ .images > .image-cat5 {
   opacity: 1;
   width: 100%;
-  border: 10px solid var(--white);
+  border: 1rem solid var(--white);
 }
 
 .cat1:checked ~ .controls-container > .controls > .label1 .label-inner,
@@ -82,8 +83,8 @@ input[type='radio'] {
 .cat3:checked ~ .controls-container > .text-container > .text3,
 .cat4:checked ~ .controls-container > .text-container > .text4,
 .cat5:checked ~ .controls-container > .text-container > .text5 {
-  font-size: 30px;
-  letter-spacing: 2px;
+  font-size: 3rem;
+  letter-spacing: 0.2rem;
   width: 100%;
   opacity: 1;
 }
@@ -91,7 +92,7 @@ input[type='radio'] {
 .controls-container {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0 10px;
+  padding: 2rem 0 1rem;
 }
 
 .controls {
@@ -103,9 +104,9 @@ input[type='radio'] {
 .controls > label {
   display: block;
   cursor: pointer;
-  height: 30px;
-  width: 30px;
-  margin: 8px;
+  height: 3rem;
+  width: 3rem;
+  margin: 0.8rem;
   border-radius: 50%;
   transition: all 0.3s linear;
 }
@@ -115,10 +116,10 @@ input[type='radio'] {
 }
 
 .label-inner {
-  width: 23px;
-  height: 23px;
+  width: 2.3rem;
+  height: 2.3rem;
   border-radius: 50%;
-  border: 3px solid var(--white);
+  border: 0.3rem solid var(--white);
   background-color: var(--white);
   transition: all 0.3s linear;
 }
@@ -135,8 +136,8 @@ input[type='radio'] {
 .text-container {
   display: flex;
   color: var(--white);
-  font-size: 30px;
-  height: 50px;
+  font-size: 3rem;
+  height: 5rem;
 }
 
 .text-container > div {
@@ -150,18 +151,18 @@ input[type='radio'] {
 
 @media (max-width: 768px) {
   .wrapper {
-    padding: 10px;
+    padding: 1rem;
   }
 
   .slider-container {
     width: 100%;
     max-height: 150vmin;
-    padding: 10px 0;
+    padding: 1rem 0;
     background-color: var(--dark);
   }
 
   .images {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
   }
 
   .controls-container {
@@ -171,7 +172,7 @@ input[type='radio'] {
   }
 
   .text-container {
-    margin-top: 20px;
+    margin-top: 2rem;
     align-self: flex-start;
   }
 }
